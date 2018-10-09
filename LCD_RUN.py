@@ -17,7 +17,7 @@ def draw_flow(img, flow, step=16):
         try:
             cv2.circle(vis, (x1, y1), 1, (0, 255, 0), -1)
         except :
-            print('')
+            print('err')
     return vis
 
 
@@ -77,13 +77,14 @@ if __name__ == '__main__':
 
         ch = cv2.waitKey(1)
         # print (ch)
-        if ch == 27:
+        if ch == 27:    # escape key
             break
-        elif ch == 83:
+        elif ch == 83:  # right arrow key
             ctr = ctr + 1
             if ctr>4:
                 ctr = 0
-        elif ch == 81:
+        elif ch == 81:  # left arrow key
             ctr = ctr - 1
             if ctr<0:
                 ctr = 4
+    cv2.destroyAllWindows()
